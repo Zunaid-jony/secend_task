@@ -19,6 +19,18 @@ const Table = () => {
   //     .then((res) => setPosts(res.data));
   // }, []);
 
+
+  axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
   useEffect(() => {
     fetch(
       "https://light-of-islam-server-production-0204.up.railway.app/schedule"
@@ -73,12 +85,16 @@ const Table = () => {
           paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
           dataKey="id"
           paginator
-          className="datatable-responsive"
+          className="datatable-responsive p-datatable-customers"
           // currentPageReportTemplate="Showing {first} to {last} of {totalRecords} posts"
           rows={10}
           emptyMessage="No customers found."
+          footer="Footer"
+          showGridlines
           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          // filters={filters2} filterDisplay="row" loading={loading2}
         >
+        
           <Column field="_id" sortable header="_id"></Column>
           <Column field="phone" sortable header="phone"></Column>
           <Column field="nid" sortable header="nid"></Column>
@@ -88,6 +104,8 @@ const Table = () => {
           <Column field="postCode" sortable header="postCode"></Column>
           <Column field="status" sortable header="status"></Column>
           <Column field="scholarName" sortable header="scholarName"></Column>
+          <Column field="userEmail" sortable header="userEmail"></Column>
+          
         </DataTable>
       </div>
     </div>
