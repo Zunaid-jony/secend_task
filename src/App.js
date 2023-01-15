@@ -6,6 +6,7 @@ import "primeicons/primeicons.css";
 import Table from "./Table/Table";
 import Task3 from './Task3/Task3';
 import Post from "./Table/Post";
+import Delete from "./Table/Delete";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
       <Task3></Task3>
       <Post></Post>
+      <Delete></Delete>
     </div>
   );
 }
